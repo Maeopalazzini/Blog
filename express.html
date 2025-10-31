@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express: Recetas en 20 Minutos | Chef Express</title>
+    
+    <!-- Enlace a los dos archivos CSS -->
+    <link rel="stylesheet" href="categorias-express.css">
+    
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- 1. Header/Navegación -->
+    <header class="main-header">
+        <div class="logo">Chef Express.</div>
+        <nav class="main-nav">
+            <ul class="nav-list">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="categoria-express.html">Recetas</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <button class="hamburger-menu">☰</button>
+    </header>
+
+    <!-- Banner de Categoría -->
+    <section class="category-banner">
+        <div class="banner-content">
+            <h1>Express: Recetas en 20 Minutos</h1>
+            <p>Comer gourmet no tiene que tomar todo el día. Platos de impacto, hechos antes de que termine la serie.</p>
+        </div>
+    </section>
+
+    <!-- Contenedor Principal (Layout de Catálogo) -->
+    <div class="main-container category-layout">
+
+        <!-- Contenido Principal: Listado de Recetas -->
+        <main class="category-listing">
+            
+            <!-- Listado de Recetas (Ahora como catálogo de una columna) -->
+            <div class="secondary-recipes-grid">
+                
+                <!-- Receta 1: Mac & Cheese (Ahora es una tarjeta de listado) -->
+                <article class="list-recipe-card">
+                    <img src="placeholder-mac-cheese.jpg" alt="Mac & Cheese Gourmet" class="list-image">
+                    <div class="list-info">
+                        <span class="recipe-time">10 Minutos | Fácil</span>
+                        <h2>Upgrade del Mac & Cheese: Queso Gruyère y Tostado Panko</h2>
+                        <p class="list-excerpt">El confort food de la universidad, pero con una textura y sabor profesional. Un secreto de chef para el queso y un topping crujiente que es adictivo.</p>
+                        <a href="mac-cheese-upgrade.html" class="article-button primary-button">Ver Receta Detallada &rarr;</a>
+                    </div>
+                </article>
+                
+                <!-- Receta 2: Ramen -->
+                <article class="list-recipe-card">
+                    <img src="placeholder-ramen.jpg" alt="Ramen de 15 Minutos" class="list-image">
+                    <div class="list-info">
+                        <span class="recipe-time">15 Minutos | Fácil</span>
+                        <h2>Ramen de 15 Minutos con Huevo Poché</h2>
+                        <p class="list-excerpt">Eleva el ramen instantáneo a nivel de restaurante con este tip de huevo pochado y tres toppings que tienes en casa. ¡Sabor en tiempo récord!</p>
+                        <a href="express-ramen.html" class="article-button primary-button">Ver Receta Detallada &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Receta 3: Tacos -->
+                <article class="list-recipe-card">
+                    <img src="placeholder-tacos.jpg" alt="Tacos Gourmet" class="list-image">
+                    <div class="list-info">
+                        <span class="recipe-time">20 Minutos | Medio</span>
+                        <h2>Tacos de Pescado Rebozado Rápido</h2>
+                        <p class="list-excerpt">Comida de calle con sabor de restaurante. Crujientes, frescos y perfectos para una noche de estudio, usando el pescado más económico.</p>
+                        <a href="express-tacos.html" class="article-button primary-button">Ver Receta Detallada &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Receta 4: Pasta -->
+                <article class="list-recipe-card">
+                    <img src="placeholder-pasta.jpg" alt="Pasta al Pesto Rápida" class="list-image">
+                    <div class="list-info">
+                        <span class="recipe-time">18 Minutos | Fácil</span>
+                        <h2>Pasta al Pesto con Tomate Seco</h2>
+                        <p class="list-excerpt">Un plato italiano de alta cocina listo en lo que tarda la pasta en cocinarse. Usa el agua de cocción para una salsa sedosa y con cuerpo.</p>
+                        <a href="express-pasta.html" class="article-button primary-button">Ver Receta Detallada &rarr;</a>
+                    </div>
+                </article>
+                
+                <!-- Receta 5: Sopa -->
+                <article class="list-recipe-card">
+                    <img src="placeholder-sopa.jpg" alt="Sopa de tomate" class="list-image">
+                    <div class="list-info">
+                        <span class="recipe-time">12 Minutos | Fácil</span>
+                        <h2>Sopa de Tomate Asado Express</h2>
+                        <p class="list-excerpt">Calidez gourmet en 12 minutos. El secreto para una sopa con sabor "a asado" es usar tomates enlatados y especias clave.</p>
+                        <a href="express-sopa.html" class="article-button primary-button">Ver Receta Detallada &rarr;</a>
+                    </div>
+                </article>
+
+            </div>
+        </main>
+
+        <!-- Sidebar: Autor y Suscripción -->
+        <aside class="main-sidebar">
+            <div class="widget author-info">
+                <img src="placeholder-perfil-leo.jpg" alt="Foto de perfil de Leo Vidal" class="profile-photo">
+                <h3>Leo Vidal</h3>
+                <p>Estudiante de día, chef aficionado por la noche. Comparto recetas rápidas y económicas que parecen hechas por un profesional.</p>
+            </div>
+            
+            <div class="widget subscribe-box">
+                <h4>Suscríbete al Newsletter</h4>
+                <p>Recibe la dosis semanal de trucos de cocina y recetas gourmet.</p>
+                <input type="email" placeholder="Tu Email..." class="subscribe-input">
+                <button class="subscribe-button">¡Quiero ser Chef Express!</button>
+            </div>
+        </aside>
+
+    </div> 
+    
+    <footer class="main-footer">
+        <nav class="footer-nav">
+            <a href="#">Contacto</a> |
+            <a href="#">Política de Privacidad</a>
+        </nav>
+        <p>&copy; 2025 Chef Express. Leo Vidal. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

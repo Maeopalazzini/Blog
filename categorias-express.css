@@ -1,0 +1,425 @@
+/* styles.css - CÓDIGO UNIFICADO PARA PÁGINAS DE RECETA INDIVIDUAL */
+
+/* Variables y Reseteo Básico */
+:root {
+    --color-primary: #D32F2F; /* Rojo Chef/Tomate (Acento y CTA) */
+    --color-secondary: #4A4A4A; /* Gris Medio (Detalles y Botones Inactivos) */
+    --color-text-dark: #212121; /* Gris Carbón (Texto Base) */
+    --color-text-light: #555;
+    --font-sans: 'Montserrat', 'Helvetica Neue', sans-serif; 
+    --spacing-large: 3.5rem;
+    --spacing-medium: 1.5rem;
+    --spacing-small: 0.75rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    color: var(--color-text-dark);
+    background-color: #FFFFFF;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-text-dark);
+}
+
+/* ---------------------------------- */
+/* 1. Header/Navegación */
+/* ---------------------------------- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-medium) var(--spacing-large);
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.logo {
+    font-family: var(--font-sans); 
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: var(--color-primary);
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+}
+
+.nav-list li a {
+    color: var(--color-text-dark);
+    margin-left: var(--spacing-medium);
+    transition: color 0.3s;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.nav-list li a:hover {
+    color: var(--color-primary);
+}
+
+.hamburger-menu {
+    display: none; 
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ---------------------------------- */
+/* 2. Banner de Receta */
+/* ---------------------------------- */
+.category-banner {
+    background-color: var(--color-primary);
+    color: white;
+    padding: var(--spacing-large) 5%;
+    text-align: center;
+}
+
+.banner-content h1 {
+    font-family: var(--font-sans);
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+}
+
+.banner-content p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ---------------------------------- */
+/* 3. Contenedor Principal (Layout Grid) */
+/* ---------------------------------- */
+.main-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-large);
+    padding: var(--spacing-large) 5%;
+}
+
+.category-layout {
+    padding-top: var(--spacing-large);
+}
+
+/* ---------------------------------- */
+/* 4. Estructura Principal de la Receta (Video + Info) */
+/* ---------------------------------- */
+
+.featured-recipe-card {
+    /* Contenedor principal de Video + Info */
+    display: flex;
+    flex-direction: column; /* Apilado (como en el HTML con width: 100%) */
+    border: 2px solid var(--color-primary);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: var(--spacing-medium);
+}
+
+.featured-video-wrapper {
+    width: 100%; /* El video ocupa todo el ancho */
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 de 100% width */
+    height: 0;
+    background-color: #000; 
+}
+
+.featured-video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.featured-info {
+    width: 100%; /* El texto ocupa todo el ancho */
+    padding: var(--spacing-medium);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.recipe-time {
+    display: block;
+    color: var(--color-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.featured-info h2 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-sans);
+    color: var(--color-text-dark);
+}
+
+/* ---------------------------------- */
+/* 5. Pasos, Ingredientes y Recetas Relacionadas */
+/* ---------------------------------- */
+
+.simple-recipe-section {
+    padding-top: var(--spacing-large);
+    margin-top: var(--spacing-medium);
+    border-top: 1px solid #ddd;
+}
+
+.simple-recipe-section h2 {
+    font-family: var(--font-sans);
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: var(--spacing-large);
+    text-align: center;
+    color: var(--color-primary);
+}
+
+.recipe-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--spacing-large);
+}
+
+.ingredients-list h3,
+.instructions-steps h3 {
+    font-family: var(--font-sans);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-medium);
+    color: var(--color-text-dark);
+}
+
+.ingredients-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ingredients-list ul li {
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed #ddd;
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+}
+
+.instructions-steps ol {
+    padding-left: 1.5rem;
+}
+
+.instructions-steps ol li {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-medium);
+    line-height: 1.5;
+    color: var(--color-text-dark);
+}
+
+/* Recetas Relacionadas (MODIFICADO para listado simple) */
+.secondary-recipes-grid {
+    display: block; /* Convertido de grid a block */
+    margin-top: var(--spacing-large);
+    border-top: 1px solid #ddd;
+    padding-top: var(--spacing-large);
+}
+
+.mini-recipe-card {
+    border: none; /* Sin bordes de tarjeta */
+    border-bottom: 1px dashed #ccc; /* Separador de lista */
+    border-radius: 0;
+    overflow: visible;
+    padding: var(--spacing-small) 0;
+    margin-bottom: var(--spacing-medium); /* Espacio entre items de lista */
+}
+
+.mini-recipe-card:hover {
+    box-shadow: none; /* Sin sombra */
+}
+
+.mini-image {
+    display: none; /* Ocultar la imagen (como en la foto de referencia) */
+}
+
+.mini-info {
+    padding: 0; /* Sin padding extra */
+}
+
+.mini-info h3 {
+    font-size: 1.2rem; /* Título de receta más grande */
+    font-weight: 700;
+    margin: 0.3rem 0;
+}
+
+.read-more-link {
+    color: var(--color-text-dark); /* Color de texto normal */
+    font-weight: 400; /* Peso normal */
+    display: inline-block;
+    margin-top: 0;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.read-more-link:hover {
+    color: var(--color-primary);
+}
+
+
+/* ---------------------------------- */
+/* 6. Sidebar (Autor) */
+/* ---------------------------------- */
+.main-sidebar {
+    padding-top: var(--spacing-small);
+}
+
+.widget {
+    margin-bottom: var(--spacing-large);
+    padding: var(--spacing-medium);
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.widget h3, .widget h4 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 0.5rem;
+}
+
+.profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 1rem;
+    border: 3px solid var(--color-primary);
+}
+
+
+/* ---------------------------------- */
+/* 7. Footer */
+/* ---------------------------------- */
+.main-footer {
+    text-align: center;
+    padding: var(--spacing-medium);
+    border-top: 1px solid #eee;
+    background-color: #f7f7f7;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+}
+
+.footer-nav a {
+    color: var(--color-text-light);
+    margin: 0 0.5rem;
+}
+
+/* ---------------------------------- */
+/* 8. Botones y Helpers (Comunes) */
+/* ---------------------------------- */
+.article-button {
+    display: inline-block;
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    align-self: flex-start;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.article-button:hover {
+    background-color: var(--color-primary);
+}
+
+.primary-button {
+    background-color: var(--color-primary);
+}
+
+.primary-button:hover {
+    background-color: var(--color-secondary);
+}
+
+.separator {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: var(--spacing-large) 0;
+}
+
+
+/* ---------------------------------- */
+/* 9. Media Query Básico para Responsive (Móviles) */
+/* ---------------------------------- */
+@media (max-width: 768px) {
+    .main-header {
+        padding: 1rem;
+    }
+    .main-nav {
+        display: none; 
+    }
+    .hamburger-menu {
+        display: block;
+    }
+    .main-container {
+        grid-template-columns: 1fr;
+        padding: var(--spacing-medium) 1rem;
+    }
+    .main-sidebar {
+        order: -1; 
+    }
+
+    .category-banner h1 {
+        font-size: 1.8rem;
+    }
+    
+    /* Adaptación Tarjeta Destacada (Video/Info Apilado) */
+    .featured-recipe-card {
+        flex-direction: column;
+    }
+    
+    .featured-video-wrapper, .featured-info {
+        width: 100%;
+        height: auto;
+    }
+    
+    .featured-video-wrapper {
+        padding-bottom: 56.25%; /* 16:9 de 100% width */
+    }
+
+    .featured-info h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* Adaptación de Pasos y Recetas */
+    .recipe-details-grid {
+        grid-template-columns: 1fr; 
+        gap: var(--spacing-medium);
+    }
+    .simple-recipe-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* Adaptación de Recetas Relacionadas (Listado simple) */
+    .secondary-recipes-grid {
+        display: block; /* Aseguramos que sea bloque */
+        grid-template-columns: none; /* Removemos grid */
+    }
+}
+
+/* Fin de categorias-express.css */
