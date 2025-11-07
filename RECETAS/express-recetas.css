@@ -31,7 +31,7 @@ a {
 }
 
 /* ---------------------------------- */
-/* 1. Header/Navegación */
+/* 1. Header/Navegación (Común) */
 /* ---------------------------------- */
 .main-header {
     display: flex;
@@ -76,7 +76,7 @@ a {
 }
 
 /* ---------------------------------- */
-/* 2. Banner de Receta */
+/* 2. Banner de Categoría/Título (Común) */
 /* ---------------------------------- */
 .category-banner {
     background-color: var(--color-primary);
@@ -104,7 +104,7 @@ a {
 /* ---------------------------------- */
 .main-container {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2fr 1fr; /* 2/3 Contenido, 1/3 Sidebar */
     gap: var(--spacing-large);
     padding: var(--spacing-large) 5%;
 }
@@ -114,13 +114,12 @@ a {
 }
 
 /* ---------------------------------- */
-/* 4. Estructura Principal de la Receta (Video + Info) */
+/* 4. Estructura Principal de la Receta (FEATURED CARD MODIFICADA) */
 /* ---------------------------------- */
 
 .featured-recipe-card {
-    /* Contenedor principal de Video + Info */
+    /* Es la estructura principal de Video (60%) + Info (40%) */
     display: flex;
-    flex-direction: column; /* Apilado (como en el HTML con width: 100%) */
     border: 2px solid var(--color-primary);
     border-radius: 6px;
     overflow: hidden;
@@ -128,9 +127,10 @@ a {
 }
 
 .featured-video-wrapper {
-    width: 100%; /* El video ocupa todo el ancho */
+    /* Video (60% del ancho del artículo) */
+    width: 60%; 
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 de 100% width */
+    padding-bottom: 33.75%; /* 16:9 de 60% width */
     height: 0;
     background-color: #000; 
 }
@@ -145,20 +145,12 @@ a {
 }
 
 .featured-info {
-    width: 100%; /* El texto ocupa todo el ancho */
+    /* Texto lateral (40% del ancho del artículo) */
+    width: 40%;
     padding: var(--spacing-medium);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-.recipe-time {
-    display: block;
-    color: var(--color-primary);
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
 }
 
 .featured-info h2 {
@@ -168,6 +160,15 @@ a {
     margin-bottom: 0.5rem;
     font-family: var(--font-sans);
     color: var(--color-text-dark);
+}
+
+.recipe-time { 
+    display: block;
+    color: var(--color-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
 }
 
 /* ---------------------------------- */
@@ -206,7 +207,6 @@ a {
 
 .ingredients-list ul {
     list-style: none;
-    padding: 0;
 }
 
 .ingredients-list ul li {
@@ -227,57 +227,44 @@ a {
     color: var(--color-text-dark);
 }
 
-/* Recetas Relacionadas (MODIFICADO para listado simple) */
-.secondary-recipes-grid {
-    display: block; /* Convertido de grid a block */
-    margin-top: var(--spacing-large);
-    border-top: 1px solid #ddd;
-    padding-top: var(--spacing-large);
+/* Recetas Relacionadas (Usadas en las páginas individuales) */
+.related-recipes {
+    margin-top: calc(var(--spacing-large) * 1.5);
+    padding: var(--spacing-medium);
+    background-color: #f7f7f7;
+    border-radius: 6px;
+    border: 1px solid #eee;
 }
 
-.mini-recipe-card {
-    border: none; /* Sin bordes de tarjeta */
-    border-bottom: 1px dashed #ccc; /* Separador de lista */
-    border-radius: 0;
-    overflow: visible;
-    padding: var(--spacing-small) 0;
-    margin-bottom: var(--spacing-medium); /* Espacio entre items de lista */
+.related-recipes h2 {
+    font-size: 1.6rem;
+    text-align: left;
+    margin-bottom: var(--spacing-medium);
+    border-bottom: 2px solid var(--color-secondary);
+    padding-bottom: 0.3rem;
+    color: var(--color-text-dark);
 }
 
-.mini-recipe-card:hover {
-    box-shadow: none; /* Sin sombra */
+.related-links-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
 }
 
-.mini-image {
-    display: none; /* Ocultar la imagen (como en la foto de referencia) */
-}
-
-.mini-info {
-    padding: 0; /* Sin padding extra */
-}
-
-.mini-info h3 {
-    font-size: 1.2rem; /* Título de receta más grande */
-    font-weight: 700;
-    margin: 0.3rem 0;
-}
-
-.read-more-link {
-    color: var(--color-text-dark); /* Color de texto normal */
-    font-weight: 400; /* Peso normal */
-    display: inline-block;
-    margin-top: 0;
-    font-size: 0.9rem;
-    transition: color 0.3s;
-}
-
-.read-more-link:hover {
+.related-links-grid a {
     color: var(--color-primary);
+    font-weight: 600;
+    transition: color 0.3s;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px dashed #ccc;
 }
 
+.related-links-grid a:hover {
+    color: var(--color-secondary);
+}
 
 /* ---------------------------------- */
-/* 6. Sidebar (Autor) */
+/* 6. Sidebar (Autor y Suscripción) */
 /* ---------------------------------- */
 .main-sidebar {
     padding-top: var(--spacing-small);
@@ -307,6 +294,44 @@ a {
     display: block;
     margin: 0 auto 1rem;
     border: 3px solid var(--color-primary);
+}
+
+/* Estilo de Suscripción (Si se decide incluir) */
+.subscribe-box {
+    text-align: center;
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.subscribe-box h4 {
+    color: white;
+    border-bottom-color: white;
+}
+
+.subscribe-input {
+    width: 90%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 4px;
+    font-family: var(--font-sans);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.subscribe-button {
+    background-color: white;
+    border: none;
+    padding: 0.7rem 1rem;
+    width: 90%;
+    color: var(--color-primary);
+    font-weight: 900;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.subscribe-button:hover {
+    background-color: #eee;
 }
 
 
@@ -414,149 +439,9 @@ a {
     .simple-recipe-section h2 {
         font-size: 1.5rem;
     }
-    
-    /* Adaptación de Recetas Relacionadas (Listado simple) */
-    .secondary-recipes-grid {
-        display: block; /* Aseguramos que sea bloque */
-        grid-template-columns: none; /* Removemos grid */
+
+    .related-links-grid {
+        /* Deshacemos el flex-direction column que se usa en desktop para volver a apilar */
+        flex-direction: column;
     }
-}
-
-
-/* Fin de categorias-express.css */
-
-.subscribe-box {
-    text-align: center;
-    background-color: var(--color-primary); /* Color de Acento para la Suscripción */
-    color: white;
-}
-
-.subscribe-box h4 {
-    color: white;
-    border-bottom-color: white;
-}
-
-.subscribe-input {
-    width: 90%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: none;
-    border-radius: 4px;
-    font-family: var(--font-sans);
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.subscribe-button {
-    background-color: white;
-    border: none;
-    padding: 0.7rem 1rem;
-    width: 90%;
-    color: var(--color-primary);
-    font-weight: 900;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: background-color 0.3s;
-}
-
-.subscribe-button:hover {
-    background-color: #eee;
-}
-/* ---------------------------------- */
-/* 10. Banner CTA (Botón Café) */
-/* ---------------------------------- */
-
-/* Contenedor de fondo que ocupa todo el ancho */
-.full-width-cta {
-    padding: var(--spacing-large) 5%; /* Padding amplio para que respire */
-    background-color: var(--color-secondary); /* Usamos el gris oscuro para contraste */
-    text-align: center;
-    /* Lo separamos del contenido de arriba y del footer de abajo */
-    margin-top: var(--spacing-large);
-    margin-bottom: var(--spacing-large); 
-}
-
-/* El botón/enlace en sí mismo */
-.cta-button-link {
-    display: inline-block;
-    font-family: var(--font-sans);
-    font-size: 1.1rem; /* Un poco más grande que los botones normales */
-    font-weight: 700;
-    color: white;
-    padding: var(--spacing-medium) var(--spacing-large);
-    border: 2px solid var(--color-primary);
-    background-color: var(--color-primary); /* Fondo rojo primario */
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-/* Efecto Hover: se invierten los colores */
-.cta-button-link:hover {
-    background-color: white;
-    color: var(--color-primary);
-    border-color: var(--color-primary);
-}
-/* ---------------------------------- */
-/* 10. Estilos de Artículo Estático (Pág. Café) */
-/* ---------------------------------- */
-
-.article-main-image {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    border-radius: 6px;
-    margin-bottom: var(--spacing-medium);
-}
-
-.static-article-content h2 {
-    font-family: var(--font-sans);
-    font-size: 2rem;
-    font-weight: 900;
-    color: var(--color-primary);
-    margin-top: var(--spacing-medium);
-    margin-bottom: var(--spacing-medium);
-}
-
-.static-article-content h3 {
-    font-family: var(--font-sans);
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--color-text-dark);
-    margin-top: var(--spacing-large);
-    margin-bottom: var(--spacing-small);
-}
-
-.static-article-content h4 {
-    font-family: var(--font-sans);
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--color-secondary);
-    margin-top: var(--spacing-medium);
-    margin-bottom: 0.25rem;
-}
-
-.static-article-content p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--color-text-light);
-    margin-bottom: var(--spacing-medium);
-}
-
-.static-article-content ul,
-.static-article-content ol {
-    font-size: 1.1rem;
-    color: var(--color-text-light);
-    padding-left: 2.5rem; /* Más padding que el default */
-    margin-bottom: var(--spacing-medium);
-}
-
-.static-article-content li {
-    margin-bottom: var(--spacing-small);
-    line-height: 1.5;
-}
-
-.static-article-content ul li {
-    list-style-type: '☕'; /* Estilo de viñeta divertido */
-    padding-left: 0.5rem;
 }

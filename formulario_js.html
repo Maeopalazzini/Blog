@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .modalsub {
+            display: block;
+            position: absolute;
+            background-color: red;
+            width: 100%
+            height: 100%
+        }
+
+        .hidden{
+            display: none;
+        }
+    </style>
+<body>
+ 
+    <form id="subscriptionform">
+        <label for="email">Ingresar Correo Electronico</label>
+        <input type="email" id="email" name="email">
+        <button type="submit">¡Quiero ser Chef Express!</button>
+    </form>
+    
+    <script> 
+
+        function cerrarmodal() {
+            const modal = document.querySelector('.modalsub');
+            modal.classList.toggle('hidden');
+        }
+
+
+        document.getElementById('subscriptionform').addEventListener('submit', function(e) {e.preventDefault();
+        const modalsub = document.createElement('div')
+        modalsub.innerHTML= '<h1>Hola mundo</h1> <button onclick="cerrarmodal()">Cerrar</button>' 
+        modalsub.classList.add('modalsub')
+        document.body.append(modalsub)
+        
+
+    })  
+    
+    </script>
+    
+</body>
+</html>
+
